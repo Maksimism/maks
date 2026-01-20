@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Система управления заданиями</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<h1>Система управления заданиями</h1>
+<div class="section" id="create-task">
+  <h2>Создание задания на выполнение сервисных работ</h2>
+  <form id="createTaskForm">
+    <label>Наименование работ:
+      <input type="text" placeholder="Название работ" id="taskName" required />
+    </label>
+    <label>Дата выполнения:
+      <input type="date" id="taskDate" required />
+    </label>
+    <label>Пожелания к исполнителям:
+      <textarea rows="3" placeholder="Дополнительные пожелания" id="taskWishes"></textarea>
+    </label>
+    <button type="submit">Создать задание</button>
+  </form>
+</div>
+<div class="section" id="edit-task">
+  <h2>Редактирование задания</h2>
+  <form id="editTaskForm">
+    <label>Наименование работ:
+      <input type="text" value="Уборка" id="editTaskName" />
+    </label>
+    <label>Дата выполнения:
+      <input type="date" id="editTaskDate" />
+    </label>
+    <label>Пожелания к исполнителям:
+      <textarea rows="3" id="editTaskWishes">Обеспечить чистоту после ремонта</textarea>
+    </label>
+    <button type="submit">Обновить задание</button>
+  </form>
+</div>
+<div class="section" id="view-tasks">
+  <h2> Задание стутусом "Новый"</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Магазин</th>
+        <th>Наименование работ</th>
+        <th>Дата выполнения</th>
+        <th>Пожелания</th>
+        <th>Статус</th>
+        <th>Действия</th>
+      </tr>
+    </thead>
+    <tbody id="tasksTableBody">
+      <tr>
+        <td>Магазин 1</td>
+        <td>Уборка</td>
+        <td>2024-05-01</td>
+        <td>Обеспечить чистоту</td>
+        <td class="status">новый</td>
+        <td>
+          <button class="editBtn">Редактировать</button>
+          <button class="cancelBtn">Отменить</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="section" id="assign-specialist">
+  <h2>Назначение специалиста на задание</h2>
+  <form id="assignForm">
+    <label>Выберите задание:
+      <select id="assignTaskSelect">
+        <option>Задание 1</option>
+        <option>Задание 2</option>
+      </select>
+    </label>
+    <label>Специалист:
+      <select id="specialistSelect">
+        <option>Исмаилов.М.А.</option>
+        <option>Жилин.К.С.</option>
+      </select>
+    </label>
+    <button type="submit">Назначить</button>
+  </form>
+</div>
+<div class="section" id="request-hire">
+  <h2>Отправка заявки на подбор специалистов</h2>
+  <form id="hireRequestForm">
+    <label>Задание:
+      <select id="hireTaskSelect">
+        <option>Задание 3</option>
+        <option>Задание 4</option>
+      </select>
+    </label>
+    <button type="submit">Отправить заявку</button>
+  </form>
+</div>
+<div class="section" id="view-statuses">
+  <h2>Статусы всех заданий</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Задание</th>
+        <th>Статус</th>
+        <th>Магазин</th>
+        <th>Дата</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Уборка</td>
+        <td>новый</td>
+        <td>Магазин 1</td>
+        <td>2024-05-01</td>
+      </tr>
+      <tr>
+        <td>Ремонт</td>
+        <td>в работе</td>
+        <td>Магазин 2</td>
+        <td>2024-05-02</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="section" id="manage-staff">
+  <h2>База специалистов</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Навыки</th>
+        <th>Категория</th>
+        <th>Доступность</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Иванов И.И.</td>
+        <td>Уборка, Ремонт</td>
+        <td>Техник</td>
+        <td>Доступен</td>
+      </tr>
+      <tr>
+        <td>Петров П.П.</td>
+        <td>Электрик</td>
+        <td>Инженер</td>
+        <td>Недоступен</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="section" id="hire-parameters">
+  <h2>Параметры приема на работу</h2>
+  <form id="hireParamsForm">
+    <label>Кандидат:
+      <input type="text" placeholder="Имя кандидата" required />
+    </label>
+    <label>Навыки:
+      <input type="text" placeholder="Навыки" required />
+    </label>
+    <label>Категория:
+      <input type="text" placeholder="Категория" required />
+    </label>
+    <label>Доступность:
+      <select>
+        <option>Доступен</option>
+        <option>Недоступен</option>
+      </select>
+    </label>
+    <button type="submit">Добавить специалиста</button>
+  </form>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
