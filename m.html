@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Maks_kir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Панель управления twich</h1>
+    <nav>
+      <button class="tab" onclick="showScreen('client')">Клиент</button>
+      <button class="tab" onclick="showScreen('manager')">Менеджер</button>
+      <button class="tab" onclick="showScreen('admin')">Администратор</button>
+    </nav>
+  </header>
+  <main>
+    <section id="client" class="role-screen">
+      <h2>Клиент: Мои заявки</h2>
+      <form>
+        <input type="text" placeholder="Поиск заявки...">
+        <button type="submit">Поиск</button>
+      </form>
+      <div class="card-list">
+        <div class="card">
+          <h3>Заявка #001</h3>
+          <p>Статус: В обработке</p>
+          <button>Подробнее</button>
+        </div>
+        <div class="card2">
+          <h3>Заявка #002</h3>
+          <p>Статус: Готово</p>
+          <button>Подробнее</button>
+        </div>
+        <div class="card empty">Нет заявок<br>Создайте первую</div>
+      </div>
+      <button class="add-btn">+ Новая заявка</button>
+      <div class="notification success">Заявка успешно отправлена</div>
+      <div class="notification error">Ошибка, попробуйте позже</div>
+    </section>
+
+    <section id="manager" class="role-screen hidden">
+      <h2>Менеджер:Заявки клиентов</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Клиент</th><th>Статус</th><th>Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td><td>Исмаилов Максим</td><td>В обработке</td>
+            <td>
+              <button>Посмотреть</button>
+              <button>Редактировать</button>
+            </td>
+          </tr>
+          <tr>
+            <td>001</td><td>Исмаилов Максим</td><td>В обработке</td>
+            <td>
+              <button>Посмотреть</button>
+              <button>Редактировать</button>
+            </td>
+          </tr>
+          <tr class="empty-row">
+            <td colspan="4">Нет активных</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="notification success">Статус заявки обновлен</div>
+    </section>
+
+    <section id="admin" class="role-screen hidden">
+    <form>
+    <input type="text" placeholder="Поиск">
+    <button type="submit">Поиск</button>
+  </form>
+  <ul class="user-list">
+    <li>Жилин Кирилл - Администратор</li>
+    <li>Исмаилов Максим - Менеджер</li>
+    <li>Сариев Самат - Бухгалтер</li>
+    <li class="empty">Нет пользователей для отображения</li>
+  </ul>
+    <button class="new">создать</button>
+    </section>
+
+  </main>
+  <script>
+    function showScreen(role) {
+      document.querySelectorAll('.role-screen').forEach(section => section.classList.add('hidden'));
+      document.getElementById(role).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
